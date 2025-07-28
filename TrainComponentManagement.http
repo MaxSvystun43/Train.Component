@@ -1,0 +1,49 @@
+@TrainComponentManagement_HostAddress = http://localhost:5035
+
+### Get all items
+GET {{TrainComponentManagement_HostAddress}}/api/items
+Accept: application/json
+
+### Create a new item
+POST {{TrainComponentManagement_HostAddress}}/api/items
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Sample Item",
+  "uniqueNumber": "ABC123",
+  "canAssignQuantity": true,
+  "initialQuantity": 10
+}
+
+### Search items by term
+GET {{TrainComponentManagement_HostAddress}}/api/items/search?term=Sample
+Accept: application/json
+
+### Get item by ID
+GET {{TrainComponentManagement_HostAddress}}/api/items/1
+Accept: application/json
+
+### Update item by ID
+PUT {{TrainComponentManagement_HostAddress}}/api/items/1
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Updated Name",
+  "uniqueNumber": "XYZ456",
+  "canAssignQuantity": false
+}
+
+### Delete item by ID
+DELETE {{TrainComponentManagement_HostAddress}}/api/items/1
+Accept: application/json
+
+### Update item quantity
+PATCH {{TrainComponentManagement_HostAddress}}/api/items/1/quantity
+Content-Type: application/json
+Accept: application/json
+
+{
+  "quantity": 25
+}
