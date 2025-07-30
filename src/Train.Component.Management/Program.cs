@@ -45,12 +45,8 @@ static async Task RunMigrationsAsync(WebApplication app)
     catch (Exception ex)
     {
         logger.LogError(ex, "Error running database migrations: {ErrorMessage}", ex.Message);
-        
-        // Option 1: Fail fast - stop the application if migrations fail
+
         throw new InvalidOperationException("Database migration failed. Application cannot start.", ex);
-        
-        // Option 2: Continue without migrations (comment out the throw above and uncomment below)
-        // logger.LogWarning("⚠️ Application will continue without running migrations. Database may be in inconsistent state.");
     }
 }
 
